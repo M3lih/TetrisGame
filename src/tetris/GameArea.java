@@ -12,7 +12,7 @@ public class GameArea extends JPanel
     private int gridColumns;
     private int gridCellSize;
     
-    private int[][] block = { {1,0}, {1,0}, {1,1} };
+    private TetrisBlock block;
     
     public GameArea(JPanel placeholder, int columns)
     {
@@ -24,20 +24,53 @@ public class GameArea extends JPanel
         gridColumns = columns;
         gridCellSize = this.getBounds().width / gridColumns;
         gridRows = this.getBounds().height / gridCellSize;
+        
+        spawnBlock();
+    }
+    
+    public void spawnBlock()
+    {
+        block = new TetrisBlock( new int [][]{ {1, 0}, {1, 0}, {1, 1}}, Color.blue   );
+        block.spawn(gridColumns);
+    }
+    
+    public void moveBlockDown()
+    {
+        if(checkBottom() == false ) return;
+      block.moveDown();
+      repaint();
+    }
+    
+    private boolean checkBottom()
+    {
+        if(block.getBottomEdge() == gridRows)
+        {
+            return false;
+        }
+        return true;
+        
     }
     
     private void drawBlock(Graphics g)
     {
-        for(int row = 0; row < block.length; row++)
+        
+        int h = block.getHeight();
+        int w = block.getWidth();
+        Color c = block.getColor();
+        int [][] shape = block.getShape();
+                
+        for(int row = 0; row < h; row++)
         {
-            for(int col = 0; col < block[0].length; col++)
+            for(int col = 0; col < w; col++)
             {
-                if(block[row][col] == 1)
+                if(shape[row][col] == 1)
                 {
-                    g.setColor(Color.red);
-                    g.fillRect(col * gridCellSize , row * gridCellSize, gridCellSize, gridCellSize );
+                    int x = (block.getX() + col) * gridCellSize;
+                    int y = (block.getY() + row) * gridCellSize;
+                    g.setColor(c);
+                    g.fillRect(x, y, gridCellSize, gridCellSize );
                     g.setColor(Color.black);
-                    g.drawRect(col * gridCellSize , row * gridCellSize, gridCellSize, gridCellSize );
+                    g.drawRect(x ,y, gridCellSize, gridCellSize );
                 }
             }
         }

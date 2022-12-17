@@ -5,13 +5,20 @@ import javax.swing.JFrame;
 
 
 public class GameForm extends JFrame {
-
+    private GameArea ga;
  
     public GameForm() {
         initComponents();
-        this.add(new GameArea( gameAreaPlaceholder, 10) );
+         ga = new GameArea(gameAreaPlaceholder, 10);
+        this.add(ga);
+        startGame();
     }
 
+    public void startGame()
+    {
+        new GameThread(ga).start();
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
