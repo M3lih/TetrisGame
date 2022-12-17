@@ -20,16 +20,20 @@ public class GameThread extends Thread
        
        while(true)
        {
-        try 
-        {
-            ga.moveBlockDown();
-            
-            Thread.sleep(1000);
-        } 
-        catch (InterruptedException ex) 
-        {
-            Logger.getLogger(GameThread.class.getName()).log(Level.SEVERE, null, ex);
-        }
+           
+           ga.spawnBlock();
+           
+            while(ga.moveBlockDown())
+            {
+                try 
+                {
+                    Thread.sleep(1000);
+                } 
+                catch (InterruptedException ex) 
+                {
+                    Logger.getLogger(GameThread.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
        }
    }   
    
