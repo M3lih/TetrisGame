@@ -148,6 +148,7 @@ public class GameArea extends JPanel
                     if(y < 0 ) break;
                     if(background[y][x] != null) return false;
                     break;
+                    //asdwqewqewq
                 }
             }
         }
