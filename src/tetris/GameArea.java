@@ -36,11 +36,20 @@ public class GameArea extends JPanel
         block.spawn(gridColumns);
     }
     
+    public boolean isBlockOutOfBounds()// tetris bloklarının alandan dışarı çıkması kontrolü
+    {
+        if(block.getY() < 0)
+        {
+            block = null;
+            return true;
+        }
+        return false;
+    }
+    
     public boolean moveBlockDown()
     {
         if(checkBottom() == false ) 
         {
-            moveBlockToBackground();
             return false;
         }
       block.moveDown();
@@ -51,6 +60,7 @@ public class GameArea extends JPanel
     
     public void moveBlockRight()
     {
+        if(block == null) return;
         if( !checkRight() ) return;
         
         block.moveRight();
@@ -60,6 +70,7 @@ public class GameArea extends JPanel
     
     public void moveBlockLeft()
     {
+        if(block == null) return;
         if( !checkLeft() ) return;
         
         block.moveLeft();
@@ -68,6 +79,7 @@ public class GameArea extends JPanel
     
     public void dropBlock()
     {
+        if(block == null) return;
         while( checkBottom() )
         {
             block.moveDown();    
@@ -77,6 +89,7 @@ public class GameArea extends JPanel
     
     public void rotateBlock()
     {
+        if(block == null) return;
         block.rotate();
         repaint();
     }
@@ -156,7 +169,58 @@ public class GameArea extends JPanel
         return true;
     }
     
-    private void moveBlockToBackground()
+    public int clearLines()
+    {
+        
+        boolean lineFilled;
+        int linesCleared = 0;
+        for (int r = gridRows - 1; r >= 0; r--)
+        { 
+            lineFilled = true;                                   
+            for (int c = 0; c < gridColumns; c++)                                   //son satırın dolu olması ontrolü
+            {
+                if(background[r][c] == null)
+                {
+                    lineFilled = false;
+                    break;
+                }
+                
+            }
+            if(lineFilled)
+            {
+              linesCleared++;
+              clearLine(r);
+              shiftDown(r);
+              clearLine(0);
+              
+              r++;
+              repaint();
+            }
+            
+        }
+        return linesCleared;
+    }
+    
+    private void clearLine(int r)//tamamlanan satırı silme
+    {
+         for(int i = 0; i < gridColumns; i++)
+          {
+              background[r][i] = null;
+          }
+    }
+    
+    private void shiftDown(int r)//tamamlanan satırı kaydırma
+    {
+        for(int row = r; row > 0; row--)
+        {
+            for (int col = 0; col < gridColumns; col++)
+            {
+                background[row][col] = background[row-1][col];
+            }
+        }
+    }
+    
+    public void moveBlockToBackground()
     {
         int[][] shape = block.getShape();
         int h = block.getHeight();
