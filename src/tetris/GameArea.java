@@ -28,8 +28,7 @@ public class GameArea extends JPanel
         gridColumns = columns;
         gridCellSize = this.getBounds().width / gridColumns;
         gridRows = this.getBounds().height / gridCellSize;
-        background = new Color[gridRows][gridColumns];
-        
+
         blocks = new TetrisBlock[]{new IShape(),
                                    new JShape(),
                                    new OShape(),    //blockları dahil ediyoruz
@@ -40,6 +39,11 @@ public class GameArea extends JPanel
                };
       
        
+    }
+    
+    public void initBackgroundArray()
+    {
+        background = new Color[gridRows][gridColumns];
     }
     
     public void spawnBlock()

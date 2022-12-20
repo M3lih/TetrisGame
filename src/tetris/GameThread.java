@@ -21,6 +21,9 @@ public class GameThread extends Thread
     {
         this.ga = ga;
         this.gf = gf;
+        
+        gf.updateLevel(level);
+        gf.updateScore(score);
     }
    @Override
    public void run()
@@ -39,13 +42,13 @@ public class GameThread extends Thread
                 } 
                 catch (InterruptedException ex) 
                 {
-                    Logger.getLogger(GameThread.class.getName()).log(Level.SEVERE, null, ex);
+                    return;
                 }
             }
             
             if(ga.isBlockOutOfBounds())
             {
-                System.out.println("Game Over");
+                Tetris.gameOver(score);
                 break;
             }
             
