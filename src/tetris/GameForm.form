@@ -27,14 +27,14 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnMainMenu" min="-2" pref="120" max="-2" attributes="0"/>
-              <EmptySpace pref="37" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Component id="gameAreaPlaceholder" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="scoreDisplay" min="-2" max="-2" attributes="0"/>
-                  <Component id="levelDisplay" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="levelDisplay" max="32767" attributes="0"/>
+                  <Component id="scoreDisplay" pref="145" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -46,7 +46,7 @@
                   <Component id="btnMainMenu" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="scoreDisplay" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="levelDisplay" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="gameAreaPlaceholder" min="-2" max="-2" attributes="0"/>
