@@ -34,13 +34,13 @@ public class GameThread extends Thread
            
            ga.spawnBlock();
            
-            while(ga.moveBlockDown())
+            while(ga.moveBlockDown())  
             {
                 try 
                 {
-                    Thread.sleep(pause);
+                    Thread.sleep(pause); // blok aşşağı hareket ederken duraksayarak inmesi
                 } 
-                catch (InterruptedException ex) 
+                catch (InterruptedException ex)  //threadlerin yarıda kesilmesi
                 {
                     return;
                 }
@@ -53,10 +53,10 @@ public class GameThread extends Thread
             }
             
             ga.moveBlockToBackground();
-            score += ga.clearLines();
+            score += ga.clearLines();      //satır tamamlandığı zaman skor arttırılması
             gf.updateScore(score);
             
-            int lvl = score / scorePerLevel +1;
+            int lvl = score / scorePerLevel +1;  //level arttırılması ve aynı zamanda 3 levelden sonra hızlanmasıs
             if (lvl > level)
             {
                 level = lvl;

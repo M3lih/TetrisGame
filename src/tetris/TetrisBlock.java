@@ -20,7 +20,7 @@ public class TetrisBlock {
         initShapes();
     }
     
-    private void initShapes()
+    private void initShapes()  // rotate edildiği zaman koordinat değişimi
     {
         shapes = new int[4][][];
         

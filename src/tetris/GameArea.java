@@ -21,7 +21,7 @@ public class GameArea extends JPanel
     public GameArea(JPanel placeholder, int columns)
     {
         placeholder.setVisible(false);
-        this.setBounds( placeholder.getBounds() );
+        this.setBounds( placeholder.getBounds() );             //oyun alanının kareler ile oluşması
         this.setBackground( placeholder.getBackground() );
         this.setBorder( placeholder.getBorder() );
         
@@ -75,7 +75,7 @@ public class GameArea extends JPanel
       return true;
     }
     
-    public void moveBlockRight()
+    public void moveBlockRight()  //bloğun sağa hareketi
     {
         if(block == null) return;
         if( !checkRight() ) return;
@@ -85,7 +85,7 @@ public class GameArea extends JPanel
     }
     
     
-    public void moveBlockLeft()
+    public void moveBlockLeft() //bloğun sola hareketi
     {
         if(block == null) return;
         if( !checkLeft() ) return;
@@ -94,7 +94,7 @@ public class GameArea extends JPanel
         repaint();
     }
     
-    public void dropBlock()
+    public void dropBlock()  //bloğun zemine düşmesi
     {
         if(block == null) return;
         while( checkBottom() )
@@ -104,7 +104,7 @@ public class GameArea extends JPanel
         repaint();
     }
     
-    public void rotateBlock()
+  public void rotateBlock() //bloğun dönme olayı
     {
         if(block == null) return;
         block.rotate();
@@ -141,7 +141,7 @@ public class GameArea extends JPanel
         return true;
     }
     
-    private boolean checkLeft()
+    private boolean checkLeft() //soldan sınır kontrolü
     {
         if(block.getLeftEdge() == 0) return false;
         
@@ -165,7 +165,7 @@ public class GameArea extends JPanel
         return true;
     }
     
-    private boolean checkRight()
+    private boolean checkRight() //sağdan sınır kontrolü
     {
         if(block.getRightEdge() == gridColumns) return false;
         
@@ -198,7 +198,7 @@ public class GameArea extends JPanel
         for (int r = gridRows - 1; r >= 0; r--)
         { 
             lineFilled = true;                                   
-            for (int c = 0; c < gridColumns; c++)                                   //son satırın dolu olması ontrolü
+            for (int c = 0; c < gridColumns; c++)                                   // satırın dolu olması ontrolü
             {
                 if(background[r][c] == null)
                 {
@@ -264,7 +264,7 @@ public class GameArea extends JPanel
         }
     }
     
-    private void drawBlock(Graphics g)
+    private void drawBlock(Graphics g)  
     {
         
         int h = block.getHeight();
