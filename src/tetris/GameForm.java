@@ -84,6 +84,7 @@ public class GameForm extends JFrame {
         btnMainMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
         gameAreaPlaceholder.setBackground(new java.awt.Color(238, 238, 238));
@@ -101,11 +102,14 @@ public class GameForm extends JFrame {
         );
 
         scoreDisplay.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        scoreDisplay.setForeground(new java.awt.Color(51, 153, 255));
         scoreDisplay.setText("Score: 0");
 
         levelDisplay.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        levelDisplay.setForeground(new java.awt.Color(255, 51, 51));
         levelDisplay.setText("Level: 1");
 
+        btnMainMenu.setBackground(new java.awt.Color(255, 204, 0));
         btnMainMenu.setText("Main Menu");
         btnMainMenu.setFocusable(false);
         btnMainMenu.addActionListener(new java.awt.event.ActionListener() {

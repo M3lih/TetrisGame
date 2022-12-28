@@ -31,8 +31,10 @@ public class StartupForm extends javax.swing.JFrame {
         btnLeaderboard = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
         setResizable(false);
 
+        btnStart.setBackground(new java.awt.Color(255, 51, 51));
         btnStart.setText("Start Game");
         btnStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -40,6 +42,7 @@ public class StartupForm extends javax.swing.JFrame {
             }
         });
 
+        btnQuit.setBackground(new java.awt.Color(51, 255, 0));
         btnQuit.setText("Quit Game");
         btnQuit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,6 +50,7 @@ public class StartupForm extends javax.swing.JFrame {
             }
         });
 
+        btnLeaderboard.setBackground(new java.awt.Color(255, 255, 102));
         btnLeaderboard.setText("Show Leaderboard");
         btnLeaderboard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -4,7 +4,7 @@ package tetris;
 import java.awt.Color;
 import java.util.Random;
 
-public class TetrisBlock {
+public abstract class TetrisBlock {
      
     private int[][] shape;
     private Color color;

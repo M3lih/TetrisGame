@@ -85,6 +85,7 @@ public class LeaderboardForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        btnMainMenu.setBackground(new java.awt.Color(255, 204, 51));
         btnMainMenu.setText("Main Menu");
         btnMainMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +93,7 @@ public class LeaderboardForm extends javax.swing.JFrame {
             }
         });
 
+        leaderboard.setBackground(new java.awt.Color(102, 255, 204));
         leaderboard.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
